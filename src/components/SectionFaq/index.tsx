@@ -21,14 +21,17 @@ const SectionFaq = ({ title, questions, extraQuestions }: SectionFaqProps) => (
           ))}
         </S.Questions>
 
-        <Heading>Perguntas extras</Heading>
-        {extraQuestions.length &&
-          extraQuestions.map(({ question, answer }, index) => (
-            <S.ExtraQuestion key={index}>
-              <Heading lineBottom>{question}</Heading>
-              <div dangerouslySetInnerHTML={{ __html: answer }} />
-            </S.ExtraQuestion>
-          ))}
+        {extraQuestions.length > 0 && (
+          <>
+            <Heading>Perguntas extras</Heading>
+            {extraQuestions.map(({ question, answer }, index) => (
+              <S.ExtraQuestion key={index}>
+                <Heading lineBottom>{question}</Heading>
+                <div dangerouslySetInnerHTML={{ __html: answer }} />
+              </S.ExtraQuestion>
+            ))}
+          </>
+        )}
       </Container>
     </S.Content>
   </S.Wrapper>
